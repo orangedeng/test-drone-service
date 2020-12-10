@@ -26,7 +26,7 @@ services:
   privileged: true
   entrypoint:
     - "dockerd-entrypoint.sh"
-  commands:
+  command:
     - "--registry-mirror"
     - "https://rxv48fvd.mirror.aliyuncs.com"
   volumes:
