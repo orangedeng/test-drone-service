@@ -18,12 +18,15 @@ steps:
   - name: dockersock
     path: /var/run
   commands:
-  - dapper ci
+  - docker info
 
 services:
 - name: docker
   image: docker:dind
   privileged: true
+  commands:
+    - "--registry-mirror"
+    - "https://rxv48fvd.mirror.aliyuncs.com"
   volumes:
   - name: dockersock
     path: /var/run
