@@ -4,7 +4,7 @@ type: kubernetes
 name: amd64
 
 steps:
-- name: test
+- name: wait-for-docker
   image: busybox
   volumes:
   - name: dockersock
