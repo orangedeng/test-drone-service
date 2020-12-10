@@ -22,8 +22,10 @@ steps:
 
 services:
 - name: docker
-  image: docker:dind
+  image: docker:18.09-dind
   privileged: true
+  entrypoint:
+    - "dockerd-entrypoint.sh"
   commands:
     - "--registry-mirror"
     - "https://rxv48fvd.mirror.aliyuncs.com"
