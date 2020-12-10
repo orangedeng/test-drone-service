@@ -5,13 +5,20 @@ name: amd64
 
 steps:
 - name: test
-  image: docker:dind
+  image: busybox
   volumes:
   - name: dockersock
     path: /var/run
   commands:
   - sleep 5 # give docker enough time to start
-  - docker ps -a
+
+- name: test
+  image: rancher/dapper:v0.4.1
+  volumes:
+  - name: dockersock
+    path: /var/run
+  commands:
+  - dapper ci
 
 services:
 - name: docker
